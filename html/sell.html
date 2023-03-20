@@ -1,0 +1,68 @@
+{% extends "html/nav.html" %}
+{% block up %}
+		<title>無規則伺服器承租</title>
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+				<script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+  					const button = new Crate({
+    				server: '839847631995404288',
+    				channel: '936516975897747517',
+  					})
+  					setInterval(() => {  
+    				button.notify({
+      				content: '您好!我是andy!請問有甚麼可以幫您的?',
+      				timeout: 10000,
+    				})
+  					}, 15000)
+				</script>
+{% endblock %}
+{% block down %}
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>伺服器承租</h2>
+							<p>伺服器承租</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+							  <h3>伺服器承租</h3>
+								<p>租租</p>
+								<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>硬體</th>
+													<th>資訊</th>
+													<th>價格</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for i in item %}
+													<tr>
+														<td>{{i[0]}}</td>
+														<td>{{i[1]}}</td>
+														<td>DC詳談</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+							  </div>
+								<hr/>
+
+								<h4>伺服器承租</h4>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-12"><span class="image fit"><img src="../images/banner.jpg" alt="" /></span></div>
+											{% for i in list %}
+												<div class="col-4"><span class="image fit"><img src="../images/pic0{{i}}.jpg" alt="" /></span></div>
+											{% endfor %}
+									</div>
+							    </div>
+							</div>
+						</section>
+					</article>
+{% endblock %}

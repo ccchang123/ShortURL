@@ -1,0 +1,38 @@
+{% extends "html/base.html" %}
+{% block main %}
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="../css/index.css">
+    <title>網址縮短</title>
+</head>
+<body>
+    <div style="height: 99vh; margin-top: 1vh;">
+        <div id="container">
+            <h1>網址縮短</h1>
+            <form method="post" action="{{url_for('short')}}">
+                <label for="url">在以下輸入你需要縮短的網址:</label>
+                <input type="url" placeholder="URL" name="URL" required oninput="check_value()">
+                <div class="g-recaptcha" data-sitekey="6LdSC14hAAAAAC44k7jtnv0hHTPdBOD2l7cpP9Ij"></div>
+                <p></p>
+                <button type="submit">取得短網址</button>
+            </form>
+            {% if error_code %}
+                <p style="color: red">{{error_code}}</p>
+            {% endif %}
+            {% if link %}
+                <div class="base" id="link">
+                    <p>你的短網址是: <a href={{ request.host_url }}url/{{ link }} target="_blank">{{ request.host_url }}url/{{ link }}</a></p>
+                    <textarea style="position:absolute;left:-99999px;" id="link_url">{{ request.host_url }}url/{{ link }}</textarea>
+                    <button onclick="copy_link()">
+                        複製
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+<script src="../js/index.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</html>
+{% endblock %}
